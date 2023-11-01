@@ -1,3 +1,4 @@
+#Made by Boone Nguyen
 def encoder(password):
     val = []
     encoded = ""
@@ -17,6 +18,13 @@ def encoder(password):
 def print_menu():
     print("menu\n-------------\n1. Encode\n2. Decode\n3. Quit")
 
+# added by Robert Iuhasz
+def decoder(encoded):
+    decoded_pass = ''
+    for number in encoded:
+        decoded_pass += str((int(number) - 3) % 10)
+    return decoded_pass
+
 
 if __name__ == '__main__':
     continue_run = True
@@ -28,7 +36,9 @@ if __name__ == '__main__':
             password = encoder(input("Please enter your password to encode:"))
             print("Your password has been encoded and stored!")
         elif option == "2":
-            pass
+            # added by Robert Iuhasz
+            decoded_password = decoder(password)
+            print("The encoded password is " + str(password) + ", and the original password is " + str(decoded_password))
         elif option == "3":
             continue_run = False
             break
